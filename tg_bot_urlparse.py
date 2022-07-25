@@ -1,4 +1,4 @@
-from telebot import *
+from telebot import TeleBot, types
 # импортируем функции из logic
 from logic import *
 
