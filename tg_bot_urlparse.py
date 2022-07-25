@@ -1,5 +1,5 @@
 from telebot import TeleBot, types
-# импортируем функции из logic
+# import logic
 from logic import *
 
 bot = TeleBot('insert your token',parse_mode='html')
@@ -12,7 +12,7 @@ def start(message):
 
 @bot.message_handler()
 def message_handler(message: types.Message):
-    # парсим url из сообщения
+    # parse url from message
     o = urlparse(message.text)
 
     bot.send_message(message.chat.id, text = f'<b>Schema:</b> <code>{o.scheme}</code>\n'
