@@ -2,7 +2,7 @@ from telebot import TeleBot, types
 # импортируем функции из logic
 from logic import *
 
-bot = TeleBot('5548950715:AAHqsdXG3JVeM1-Z1K-yF03Q2KLfk-0hehQ',parse_mode='html')
+bot = TeleBot('insert your token',parse_mode='html')
 
 @bot.message_handler(commands=['start'])
 def start(message):
