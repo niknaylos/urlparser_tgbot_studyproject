@@ -27,8 +27,8 @@ def message_handler(message: types.Message):
     else:
         bot.send_message(message.chat.id, text = '<b>Queries</b>:\n')
 
-        for queries in split_queries(o):
-            bot.send_message(message.chat.id, text = f'<code>{queries}</code>')
+        for quer in split_queries(o):
+            bot.send_message(message.chat.id, text = f'<code>{quer}</code>')
 
 
 def main():
