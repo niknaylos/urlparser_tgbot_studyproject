@@ -1,12 +1,18 @@
 from urllib.parse import urlparse, parse_qsl
-
-'''Url Anchor'''
+#Validate url
+def url_validator(x):
+    try:
+        result = urlparse(x)
+        return all([result.scheme, result.netloc])
+    except:
+        return False
+#Url Anchor
 def anchor(url):
     if url.fragment == '':
         return ''
     else:
         return url.fragment
-'''Url Port'''
+#Url Port
 
 def port(url):
     if url.scheme == 'https':
@@ -16,7 +22,7 @@ def port(url):
     else:
         return 'Unknown'
 
-'''List of split queries'''
+#List of split queries
 
 def split_queries(url):
     a = parse_qsl(url.query, keep_blank_values=True)
