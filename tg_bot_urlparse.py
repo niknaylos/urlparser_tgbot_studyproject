@@ -1,10 +1,11 @@
 from telebot import TeleBot, types
 # import logic
 from logic import *
+import os
 
+PORT = int(os.environ.get('PORT', 5000))
 
-
-bot = TeleBot('token',parse_mode='html')
+bot = TeleBot('5548950715:AAHqsdXG3JVeM1-Z1K-yF03Q2KLfk-0hehQ',parse_mode='html')
 
 @bot.message_handler(commands=['start'])
 def start(message):
