@@ -2,10 +2,10 @@ from telebot import TeleBot, types
 # import logic
 from logic import *
 import os
-
+TOKEN = '5548950715:AAHqsdXG3JVeM1-Z1K-yF03Q2KLfk-0hehQ'
 PORT = int(os.environ.get('PORT', 5000))
 
-bot = TeleBot('5548950715:AAHqsdXG3JVeM1-Z1K-yF03Q2KLfk-0hehQ',parse_mode='html')
+bot = TeleBot(TOKEN,parse_mode='html')
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -39,6 +39,9 @@ def message_handler(message: types.Message):
         bot.send_message(message.chat.id, text = 'Not a valid URL, try again')
 
 
-def main():
-    bot.infinity_polling()
-main()
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://your_heroku_project.com/' + TOKEN)
+    return "!", 200
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port=PORT)
