@@ -4,7 +4,7 @@ from logic import *
 
 
 
-bot = TeleBot('insert your token',parse_mode='html')
+bot = TeleBot('token',parse_mode='html')
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -14,8 +14,9 @@ def start(message):
 
 @bot.message_handler()
 def message_handler(message: types.Message):
-    # парсим url из сообщения
+    # валидируем url
     if url_validator(message.text):
+        # если url валидный – парсим
         o = urlparse(message.text)
 
         bot.send_message(message.chat.id, text=f'<b>Schema:</b> <code>{o.scheme}</code>\n'
@@ -32,6 +33,7 @@ def message_handler(message: types.Message):
 
             for queries in split_queries(o):
                 bot.send_message(message.chat.id, text=f'<code>{queries}</code>')
+    # если url невалидный – пишем ошибку
     else:
         bot.send_message(message.chat.id, text = 'Not a valid URL, try again')
 
