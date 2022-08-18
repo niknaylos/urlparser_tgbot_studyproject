@@ -41,7 +41,7 @@ def message_handler(message: types.Message):
 
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://your_heroku_project.com/' + TOKEN)
+    bot.set_webhook(url='https://peaceful-retreat-96342.herokuapp.com/' + TOKEN)
     return "!", 200
 if __name__ == "__main__":
     server.run(host="0.0.0.0", port=PORT)
