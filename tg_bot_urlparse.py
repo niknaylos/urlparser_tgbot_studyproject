@@ -1,10 +1,10 @@
 from telebot import TeleBot, types
 # import logic
 from logic import *
-import os
-from flask import Flask, request
+
+
 TOKEN = '5548950715:AAHqsdXG3JVeM1-Z1K-yF03Q2KLfk-0hehQ'
-PORT = int(os.environ.get('PORT', 5000))
+
 
 bot = TeleBot(TOKEN,parse_mode='html')
 
