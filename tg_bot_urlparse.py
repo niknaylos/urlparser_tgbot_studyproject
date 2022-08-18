@@ -38,7 +38,15 @@ def message_handler(message: types.Message):
     else:
         bot.send_message(message.chat.id, text = 'Not a valid URL, try again')
 
+@server.route('/' + TOKEN, methods=['POST'])
+def getMessage():
+    json_string = request.get_data().decode('utf-8')
+    update = telebot.types.Update.de_json(json_string)
+    bot.process_new_updates([update])
+    return "!", 200
 
+
+@server.route("/")
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://peaceful-retreat-96342.herokuapp.com/' + TOKEN)
