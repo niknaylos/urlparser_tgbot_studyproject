@@ -1,9 +1,7 @@
-from telebot import TeleBot, types
+from telebot import *
 # import logic
 from logic import *
-
-
-TOKEN = '5548950715:AAHqsdXG3JVeM1-Z1K-yF03Q2KLfk-0hehQ'
+TOKEN = 'token'
 
 
 bot = TeleBot(TOKEN,parse_mode='html')
@@ -39,8 +37,7 @@ def message_handler(message: types.Message):
     else:
         bot.send_message(message.chat.id, text = 'Not a valid URL, try again')
 
+
 def main():
     bot.infinity_polling(True)
-
-if __name__ == "__main__":
-    main()
+main()
